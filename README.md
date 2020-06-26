@@ -3,13 +3,13 @@ to deploy moodle, we need moodle images and dbms (mariadb, msql) images
 
 ## pull image
 
-- moodle image
+- [moodle image](https://hub.docker.com/repository/docker/prasta/moodle)
 
 ```
 $ docker pull prasta/moodle:latest
 ```
 
-- dbms image (mariadb)
+- [dbms image (mariadb)](https://hub.docker.com/_/mariadb)
 
 ```
 $ docker pull mariadb:latest
@@ -43,3 +43,38 @@ $ docker run --name=moodle-container --network=moodle -d -p 80:80 prasta/moodle:
 ```
 
 ## deploy using docker-compose
+
+docker-compose file [link](docker-compose.yml)
+
+```
+version: '3'
+services:
+    mariadb-moodle:
+        image: mariadb:latest
+        volumes:
+            - moodle_data:/var/lib/mysql
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: m00dle
+            MYSQL_DATABASE: moodle
+            MYSQL_USER: moodle
+            MYSQL_PASSWORD: m00dle
+        networks:
+            - moodle
+        
+    moodle-container:
+        depends_on: 
+            - mariadb-moodle
+        image: prasta/moodle:latest
+        ports:
+            - "80:80"
+        restart: always
+
+volumes:
+    moodle_data:        
+
+networks:
+    moodle:
+```
+
+
