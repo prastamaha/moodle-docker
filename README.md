@@ -44,7 +44,7 @@ $ docker run --name=moodle-container --network=moodle -d -p 80:80 prasta/moodle:
 
 ## deploy using docker-compose
 
-docker-compose file [link](docker-compose.yml)
+docker-compose file [link](https://github.com/prastamaha/moodle-docker/blob/master/docker-compose.yml)
 
 ```
 version: '3'
