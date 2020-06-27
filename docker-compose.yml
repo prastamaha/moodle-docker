@@ -15,7 +15,7 @@ services:
         
     app:
         depends_on: 
-            - mariadb-moodle
+            - db
         image: prasta/moodle:latest
 #        ports:
  #           - "80:80"

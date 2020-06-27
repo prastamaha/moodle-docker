@@ -49,7 +49,7 @@ docker-compose file [link](https://github.com/prastamaha/moodle-docker/blob/mast
 ```
 version: '3'
 services:
-    mariadb-moodle:
+    db:
         image: mariadb:latest
         volumes:
             - moodle_data:/var/lib/mysql
@@ -62,9 +62,9 @@ services:
         networks:
             - moodle
         
-    moodle-container:
+    app:
         depends_on: 
-            - mariadb-moodle
+            - db
         image: prasta/moodle:latest
         ports:
             - "80:80"
