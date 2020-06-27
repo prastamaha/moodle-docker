@@ -1,6 +1,6 @@
 version: '3'
 services:
-    mariadb-moodle:
+    db:
         image: mariadb:latest
         volumes:
             - moodle_data:/var/lib/mysql
@@ -13,12 +13,12 @@ services:
         networks:
             - moodle
         
-    moodle-container:
+    app:
         depends_on: 
             - mariadb-moodle
         image: prasta/moodle:latest
-        ports:
-            - "80:80"
+#        ports:
+ #           - "80:80"
         restart: always
 
 volumes:
