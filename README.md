@@ -69,14 +69,9 @@ services:
         ports:
             - "80:80"
         restart: always
-<<<<<<< HEAD
 	networks:
 	    - moodle
 
-=======
-       networks:
-            - moodle
->>>>>>> 0dd0a41483c3e0e1609dd25c9d2d22cab67f1478
 volumes:
     moodle_data:        
 
