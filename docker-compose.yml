@@ -17,9 +17,11 @@ services:
         depends_on: 
             - db
         image: prasta/moodle:latest
-#        ports:
- #           - "80:80"
+        ports:
+            - "80:80"
         restart: always
+	networks:
+	    - moodle
 
 volumes:
     moodle_data:        
