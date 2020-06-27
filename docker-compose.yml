@@ -20,8 +20,8 @@ services:
         ports:
             - "80:80"
         restart: always
-	networks:
-	    - moodle
+        networks:
+            - moodle
 
 volumes:
     moodle_data:        
